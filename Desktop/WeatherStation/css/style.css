@@ -1,0 +1,17 @@
+/**
+ * @file: style.css
+ * @author: Gruppo 7
+ * @lesson: 16 - JQuery
+ * @numberOfTheExercise: ?
+ * @exerciseTitle: Weather Station
+ */
+
+.cssDisplay {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 10px inset #6D6D6D;
+  padding: 14px;
+  margin: 25px;
+  font-family: 'arial black';
+  text-align: center;
+}
