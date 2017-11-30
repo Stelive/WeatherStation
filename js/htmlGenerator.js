@@ -21,5 +21,5 @@ function generateAccordion(accordionName, temperature) {
   /*<button class="accordion firstAccordion">Section 1</button>
   <div class="panel">
     <div class="divProva"></div>
-  </div>*/
+  </div> */
 }

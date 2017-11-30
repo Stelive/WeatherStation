@@ -5,8 +5,10 @@
   - Lorenzo Bergamasco
   - Stefano Pedroli
   - Amedeo Martello
-  - Alessando Oppedisano 
+  - Alessando Oppedisano
  * @lesson: 17 - More jQuery
  * @numberOfTheExercise: 1
  * @exerciseTitle: Weather Station
  */
+
+/* qualcosa */
