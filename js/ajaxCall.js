@@ -14,3 +14,4 @@
 /* NOTA BENE:
     - noi prendiamo prima di tutto i nomi delle stazioni.
     - mandiamo poi in ASINCRONO i contenuti di ogni stazione
+    */

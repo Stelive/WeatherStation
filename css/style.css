@@ -26,6 +26,7 @@
   margin: auto;
   width: 90%;
   height: auto;
+  margin-bottom: 5%;
 }
 
 /*****************************/
@@ -270,7 +271,34 @@ div.panel {
   transition: max-height 0.2s ease-out;
 }
 
-.divProva {
-  width: 100%;
-  height: 200px;
+.imgBox {
+  margin: 3%;
+  width: auto;
+  height: auto;
 }
+
+.webcamImg {
+  width: 720px;
+  height: auto;
+}
+
+img.webcamImg {
+  -webkit-filter: saturate(2); filter: saturate(2);
+  -webkit-filter: contrast(120%);filter: contrast(120%);
+  border-radius: 8px;
+}
+
+img.webcamImg:hover {
+  -webkit-filter: saturate(2); filter: saturate(2);
+  -webkit-filter: contrast(120%);filter: contrast(120%);
+  -webkit-filter: blur(1px);filter: blur(2px);
+}
+
+.description {
+  float: right;
+}
+
+.imgTitle {
+  font-size: 1.2em;
+}
+/* CIAO OPPEEEEE! MI VEDI? */
