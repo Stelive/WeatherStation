@@ -211,95 +211,71 @@ label {
 /*****************************/
 
 button.accordion {
-  background-color: #4e9a81;
-  color: #e5f0ed;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  height: 80px;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
+    background-color: #4e9a81;
+    color: #e5f0ed;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    height: 80px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
 
-  margin-top: 0.5%;
-  margin-bottom: 0.5%;
-
-  /* cards effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
-  transition: 0.2s;
+    margin-top: 0.5%;
+  	margin-bottom: 0.5%;
+    /* cards effect */
+  	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  	transition: 0.2s;
 }
-
-/*button.firstAccordion {
-  margin-top: 0%;
-}*/
 
 button.accordion.active, button.accordion:hover {
-  background-color: #358b6e;
-  margin-top: 0.5%;
-  margin-bottom: 0.5%;
-  /*modifica*/
-
-  /* card effects */
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-/*button.firstAccordion.active, button.firstAccordion:hover {
-  margin-top: 0%;
-  margin-bottom: 0.5%;
-}*/
-
-button.accordion:after {
-  content: '\002B';
-  color: #e5f0ed;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-  margin-top: 0.5%;
-}
-
-button.accordion.active:after {
-  content: "\2212";
+    background-color: #358b6e;
 }
 
 div.panel {
-  padding: 0 18px;
-  background-color: #e5f0ed;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-
-.imgBox {
-  margin: 3%;
-  width: auto;
-  height: auto;
-}
-
-.webcamImg {
-  width: 720px;
-  height: auto;
+	width: auto;
+    height: 300px;
+    padding: 3%;
+    display: none;
+    background-color: white;
+    text-align: center;
+    background-color: #e5f0ed;
 }
 
 img.webcamImg {
-  -webkit-filter: saturate(2); filter: saturate(2);
-  -webkit-filter: contrast(120%);filter: contrast(120%);
+  float: left;
+  /* width: 100%; */
+  max-width: 50%;
+  /* height: 300px; */
+  max-height: 100%;
+  margin-right: 3%;
+}
+
+.webcamImg {
+  /* style effects */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 8px;
+  /* img filter */
+  -webkit-filter: saturate(2);
+  filter: saturate(2);
+  -webkit-filter: contrast(120%);
+  filter: contrast(120%);
 }
 
-img.webcamImg:hover {
-  -webkit-filter: saturate(2); filter: saturate(2);
-  -webkit-filter: contrast(120%);filter: contrast(120%);
-  -webkit-filter: blur(1px);filter: blur(2px);
-}
+/*
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.imgBox img {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 8px;
 
-.description {
-  float: right;
-}
-
-.imgTitle {
-  font-size: 1.2em;
-  //commento fatto alle 19.30
-  //commento fatto alle 19.34 da Stefano
-}
+  /* img filter
+  -webkit-filter: saturate(2);
+  filter: saturate(2);
+  -webkit-filter: contrast(120%);
+  filter: contrast(120%);
+}*/
