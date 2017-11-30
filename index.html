@@ -8,19 +8,66 @@
  <title>Weather Station</title>
  <meta name="" content="">
  <meta name="author" content="Stefano Pedroli">
-<link rel="stylesheet" href="css/style.css?v=1.0">
+ <link rel="stylesheet" href="css/reset.css?v=1.0">
+ <link rel="stylesheet" href="css/style.css?v=1.0">
  <!--[if lt IE 9]>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
  <![endif]-->
 </head>
 <html>
-<body>
+<body onload="loadPage()">
 
-    <div class="container" id="container">
+    <div id="loader"></div>
+
+    <div class="container animate-bottom" id="container">
 
       <!-- ALL CODE HERE -->
+      <div class="title" id="title">Weather Station</div>
+      <div class="seattings" id="seattings">
 
-    </div>
+        <label for="station">Station Name</label>
+        <input type="search" id="search" placeholder="Search..." />
+        <label for="country">Country</label>
+        <select class="country" id="country" name="country">
+          <option>country 1</option>
+          <option>country 2</option>
+        </select>
+
+        <label for="update">Last Update: </label>
+        <button class="pauseButton">Pause</button>
+
+      </div> <!-- settings div -->
+
+      <button class="accordion firstAccordion">Section 1</button>
+      <div class="panel">
+        <div class="divProva"></div>
+      </div>
+      <button class="accordion">Section 2</button>
+      <div class="panel">
+        <div class="divProva"></div>
+      </div>
+      <button class="accordion">Section 2</button>
+      <div class="panel">
+        <div class="divProva"></div>
+      </div>
+      <button class="accordion">Section 2</button>
+      <div class="panel">
+        <div class="divProva"></div>
+      </div>
+      <button class="accordion">Section 2</button>
+      <div class="panel">
+        <div class="divProva"></div>
+      </div>
+      <button class="accordion">Section 2</button>
+      <div class="panel">
+        <div class="divProva"></div>
+      </div>
+      <button class="accordion">Section 2</button>
+      <div class="panel">
+        <div class="divProva"></div>
+      </div>
+
+    </div> <!-- container div -->
 
 
 	<!-- FILE JS / JQUERY -->
