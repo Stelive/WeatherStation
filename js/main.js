@@ -1,13 +1,15 @@
 /**
  * @file: main.js
- * @author: Gruppo ...
- * @lesson: 17 -
- * @numberOfTheExercise: ?
+ * @author: Gruppo 7
+ * @members:
+  - Stefano Pedroli
+  - Alessando Oppedisano
+  - Lorenzo Bergamasco
+  - Amedeo Martello
+ * @lesson: 17 - More jQuery
+ * @numberOfTheExercise: 1
  * @exerciseTitle: Weather Station
- *
- * Purpose of file:
- * Prova 1
-*/
+ */
 
 // loader
 var myVar;
