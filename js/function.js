@@ -12,3 +12,7 @@
  */
 
 /* qualcosa */
+
+function prova() {
+  console.log("ciao");
+}
