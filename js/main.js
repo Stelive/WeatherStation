@@ -116,7 +116,7 @@ function createweatherStation(object){
 */
 
 // è giusta ma bisogna vedere le classi del bottone
-function putInTheDom(object){
+/*function putInTheDom(object){
 var $buttons = $("button")
 $buttons.each(function($button){
   $($button).attr('value', object.station.city);
@@ -130,4 +130,4 @@ setInterval(function(){
   weatherStations.forEach(function(weatherStation){
   //  putInTheDom(weatherStation);
 });
- }, 3000);
+}, 3000);*/
