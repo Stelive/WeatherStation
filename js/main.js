@@ -38,3 +38,27 @@ for (var i = 0; i < acc.length; i++) {
         }
     }
 }
+
+/** * Return a object that is the conversion of json of the site
+* @param {Object} object - the object from the json
+* @returns {Object} the object with minus property */
+
+function createweatherStation(object){
+  var weatherStation = {
+    city: "",
+    temperature : "",
+    nation: "",
+    latitudine: "",
+    longitudine: ""
+  };
+  weatherStation.city = object.station.city;
+  weatherStation.temperature = object.temperature;
+  weatherStation.nation = object.station.nation.name;
+  weatherStation.latitudine = object.station.lat;
+  weatherStation.longitudine = object.station.lng;
+  return weatherStation
+}
+
+var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
+var weatherStation = createweatherStation(weatherStations[0]);
+generateAccordion(weatherStation)
