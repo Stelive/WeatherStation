@@ -12,7 +12,3 @@
  */
 
 /* qualcosa */
-
-function prova() {
-  console.log("Ho cambiato questo console log e mo lo committo");
-}
