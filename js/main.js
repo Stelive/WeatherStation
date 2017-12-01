@@ -25,18 +25,17 @@ function showPage() {
   document.getElementById("container").style.display = "block";
 }
 
-// accordion
 var acc = document.getElementsByClassName("accordion");
 for (var i = 0; i < acc.length; i++) {
-  acc[i].onclick = function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "flex") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "flex";
+        }
     }
-  }
 }
 
 //the object for the JSON
