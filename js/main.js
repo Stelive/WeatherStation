@@ -46,14 +46,16 @@ for (var i = 0; i < acc.length; i++) {
 function createweatherStation(object){
   var weatherStation = {
     city: "",
-    temperature : "",
     nation: "",
+    region: "",
+    temperature : "",
     latitudine: "",
     longitudine: ""
   };
   weatherStation.city = object.station.city;
-  weatherStation.temperature = object.temperature;
   weatherStation.nation = object.station.nation.name;
+  weatherStation.region = object.station.region.name;
+  weatherStation.temperature = object.temperature;
   weatherStation.latitudine = object.station.lat;
   weatherStation.longitudine = object.station.lng;
   return weatherStation

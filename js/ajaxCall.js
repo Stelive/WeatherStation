@@ -31,19 +31,7 @@
    return object
  }
 
- 
-
-
- // è giusta ma bisogna vedere le classi del bottone
- /*function putInTheDom(object){
- var $buttons = $("button")
- $buttons.each(function($button){
-   $($button).attr('value', object.station.city);
-
-   });
- }
-
-
+/*
  setInterval(function(){
    var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
    console.log(weatherStations);
