@@ -30,18 +30,9 @@
 
    request.onreadystatechange = function() {
      if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-
+        showPage()
      }
 };
    request.send(null); var object = JSON.parse(request.responseText);
    return object
  }
-
-/*
- setInterval(function(){
-   var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
-   console.log(weatherStations);
-   weatherStations.forEach(function(weatherStation){
-   //  putInTheDom(weatherStation);
- });
- }, 3000);*/

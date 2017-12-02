@@ -11,48 +11,28 @@
  * @exerciseTitle: Weather Station
  */
 
-// loader
-var myVar;
+ var skyColor = {
+   daySnow : "#c6e2ff",
+   daySun : "#b2e6f4",
+   dayCloud : "#dbdbdb",
+   nightSun: "#131862", // scritte bianche di notte!!
+   nightCloud : "#0a2c74", // fa schifo le nuvole dovrebbero essere bianche
+   sunset : "F3936B" // queso fossi in voi non lo userei mai
+ };
+
+/** Hide the page until is ready
+*/
 function loadPage() {
     document.getElementById("container").style.display = "none";
-    myVar = setTimeout(showPage, 1000);
-    // qua invece di un intervallo facciamo partire...
-    // ...la cosa quando ha finito di caricare
 }
 
+/** Show the page when is ready
+*/
 function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("container").style.display = "block";
 }
 
-loadPage();
-var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
-var weatherStation = createweatherStation(weatherStations[0]);
-generateAccordion(weatherStation)
-
-
-
-var acc = document.getElementsByClassName("accordion");
-for (var i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "flex") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "flex";
-        }
-    }
-}
-
-var skyColor = {
-  daySnow : "#c6e2ff",
-  daySun : "#b2e6f4",
-  dayCloud : "#dbdbdb",
-  nightSun: "#131862", // scritte bianche di notte!!
-  nightCloud : "#0a2c74", // fa schifo le nuvole dovrebbero essere bianche
-  sunset : "F3936B" // queso fossi in voi non lo userei mai
-};
 /** * Return a object that is the conversion of json of the site
 * @param {Object} object - the object from the json
 * @returns {Object} the object with minus property */
@@ -73,4 +53,27 @@ function createweatherStation(object){
   weatherStation.latitudine = object.station.lat;
   weatherStation.longitudine = object.station.lng;
   return weatherStation
+}
+
+loadPage();
+//Ho commentato il set inteval perche rallenta veramente tanto la pagina!!!!
+//setInterval(function(){
+var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
+  weatherStations.forEach(function(weatherStation) {
+    var weatherStation = createweatherStation(weatherStation);
+    generateAccordion(weatherStation);
+  });
+//}, 10000);
+
+var acc = document.getElementsByClassName("accordion");
+for (var i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "flex") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "flex";
+        }
+    }
 }
