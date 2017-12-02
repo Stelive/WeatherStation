@@ -41,11 +41,18 @@ for (var i = 0; i < acc.length; i++) {
             panel.style.display = "none";
         } else {
             panel.style.display = "flex";
-            //initSnow();
         }
     }
 }
 
+var skyColor = {
+  daySnow : "#c6e2ff",
+  daySun : "#b2e6f4",
+  dayCloud : "#dbdbdb",
+  nightSun: "#131862", // scritte bianche di notte!!
+  nightCloud : "#0a2c74", // fa schifo le nuvole dovrebbero essere bianche
+  sunset : "F3936B" // queso fossi in voi non lo userei mai
+};
 /** * Return a object that is the conversion of json of the site
 * @param {Object} object - the object from the json
 * @returns {Object} the object with minus property */
