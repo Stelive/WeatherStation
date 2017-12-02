@@ -27,6 +27,12 @@
    var request = new XMLHttpRequest();
    request.open("GET", url ,false);
    request.setRequestHeader('Content-type', 'application/json');
+
+   request.onreadystatechange = function() {
+     if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+
+     }
+};
    request.send(null); var object = JSON.parse(request.responseText);
    return object
  }

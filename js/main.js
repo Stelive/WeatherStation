@@ -25,6 +25,13 @@ function showPage() {
   document.getElementById("container").style.display = "block";
 }
 
+loadPage();
+var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
+var weatherStation = createweatherStation(weatherStations[0]);
+generateAccordion(weatherStation)
+
+
+
 var acc = document.getElementsByClassName("accordion");
 for (var i = 0; i < acc.length; i++) {
     acc[i].onclick = function(){
@@ -60,7 +67,3 @@ function createweatherStation(object){
   weatherStation.longitudine = object.station.lng;
   return weatherStation
 }
-
-var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
-var weatherStation = createweatherStation(weatherStations[0]);
-generateAccordion(weatherStation)
