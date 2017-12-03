@@ -39,7 +39,6 @@
  		});
  	}
 
-
  	function draw(){
  		var i;
  		ctx.clearRect(0, 0,c.width,c.height);
@@ -52,13 +51,9 @@
  			if (lines[i].y > c.height)
  				lines[i].y = 0 - lines[i].height;
  		}
-
  		requestAnimationFrame(draw);
-
  	}
-
  	draw();
-
 }
 
 function snow(canvas){
@@ -120,7 +115,6 @@ function snow(canvas){
         }
     }, 16);
 }
-
 
 // STARS EFFECTS
 /*"use strict";
@@ -543,7 +537,6 @@ var onClick= function(event){
 pause.addEventListener('click', onClick);
 */
 
-
 var acc = document.getElementsByClassName("accordion");
 for (var i = 0; i < acc.length; i++) {
     acc[i].onclick = function(){
@@ -561,7 +554,6 @@ for (var i = 0; i < acc.length; i++) {
             /*var canvas = panel.getElementsByTagName("canvas")[0];
             switch (canvas.id) {
               case "rain": {
-
               }
             }*/
             if (panel.getElementsByTagName("canvas")[0].id == "rain") {
