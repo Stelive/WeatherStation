@@ -11,223 +11,264 @@
  * @exerciseTitle: Weather Station
  */
 
-.cssDisplay {
-  background-color: #FFFFFF;
-  color: #000000;
-  border: 10px inset #6D6D6D;
-  padding: 14px;
-  margin: 25px;
-  font-family: 'arial black';
-  text-align: center;
-}
+ .cssDisplay {
+   background-color: #FFFFFF;
+   color: #000000;
+   border: 10px inset #6D6D6D;
+   padding: 14px;
+   margin: 25px;
+   font-family: 'arial black';
+   text-align: center;
+ }
 
-.container {
-  background-color: #FFFFFF;
-  margin: auto;
-  width: 90%;
-  height: auto;
-  margin-bottom: 5%;
-}
+ .container {
+   background-color: #FFFFFF;
+   margin: auto;
+   width: 90%;
+   height: auto;
+   margin-bottom: 5%;
+ }
 
-/*****************************/
-/***********TITLE*************/
-/*****************************/
+ /*****************************/
+ /***********TITLE*************/
+ /*****************************/
 
-.title {
-  background-color: #FFFFFF;
-  color: #036F4B;
-  font-size: 3em;
-  width: 100%;
-  height: 100px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 100px;
-}
+ .title {
+   background-color: #FFFFFF;
+   color: #036F4B;
+   font-size: 3em;
+   width: 100%;
+   height: 100px;
+   text-align: center;
+   vertical-align: middle;
+   line-height: 100px;
+ }
 
-/*****************************/
-/**********SETTINGS***********/
-/*****************************/
+ /*****************************/
+ /**********SETTINGS***********/
+ /*****************************/
 
-.seattings {
-  background-color: #4e9a81;
-  width: 94%;
-  height: 50px;
-  border-radius: 9px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-left: 3%;
-  padding-right: 3%;
+ .seattings {
+   background-color: #4e9a81;
+   width: 94%;
+   height: 50px;
+   border-radius: 9px;
+   padding-top: 50px;
+   padding-bottom: 50px;
+   padding-left: 3%;
+   padding-right: 3%;
 
-  color: #e5f0ed;
-  font-size: 1.5em;
+   color: #e5f0ed;
+   font-size: 1.5em;
 
-  display: -webkit-flex; /* Safari */
-  -webkit-justify-content: space-around; /* Safari 6.1+ */
-  display: flex;
-  justify-content: space-around;
+   display: -webkit-flex; /* Safari */
+   -webkit-justify-content: space-around; /* Safari 6.1+ */
+   display: flex;
+   justify-content: space-around;
 
-  /* cards effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
-  transition: 0.2s;
-  margin-bottom: 2%;
-}
-.seattings:hover {
-  /* cards effect */
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+   /* cards effect */
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+   transition: 0.2s;
+   margin-bottom: 2%;
+ }
+ .seattings:hover {
+   /* cards effect */
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+ }
 
-input, select, textarea, button {
-  color: #358b6e;
-}
+ input, select, textarea, button {
+   color: #358b6e;
+ }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-  color: #4e9a81;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #4e9a81;
-  opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #4e9a81;
-  opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #4e9a81;
-}
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: #4e9a81;
-}
+ ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+   color: #4e9a81;
+ }
+ :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #4e9a81;
+   opacity:  1;
+ }
+ ::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #4e9a81;
+   opacity:  1;
+ }
+ :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #4e9a81;
+ }
+ ::-ms-input-placeholder { /* Microsoft Edge */
+   color: #4e9a81;
+ }
 
-::placeholder { /* Most modern browsers support this now. */
-  color: #4e9a81;
-}
+ ::placeholder { /* Most modern browsers support this now. */
+   color: #4e9a81;
+ }
 
-input[type=search] {
-  width: 9%;
-  margin: 0;
-  box-sizing: border-box;
-  border: 2px solid #036f4b;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #e5f0ed;
-  background-image: url('https://png.icons8.com/?id=131&size=23');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
+ input[type=search] {
+   width: 9%;
+   margin: 0;
+   box-sizing: border-box;
+   border: 2px solid #036f4b;
+   border-radius: 5px;
+   font-size: 16px;
+   background-color: #e5f0ed;
+   background-image: url('https://png.icons8.com/?id=131&size=23');
+   background-position: 10px 10px;
+   background-repeat: no-repeat;
+   padding: 12px 20px 12px 40px;
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+ }
 
-input[type=search]:focus {
-  width: 25%;
-}
+ input[type=search]:focus {
+   width: 25%;
+ }
 
-.country {
-  width: 15%;
-  height: 100%;
-  margin: 0;
-  box-sizing: border-box;
-  border: 2px solid #036f4b;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #e5f0ed;
-  padding: 12px 20px 12px 40px;
-}
+ .country {
+   width: 15%;
+   height: 100%;
+   margin: 0;
+   box-sizing: border-box;
+   border: 2px solid #036f4b;
+   border-radius: 5px;
+   font-size: 16px;
+   background-color: #e5f0ed;
+   padding: 12px 20px 12px 40px;
+ }
 
-label {
-  display: block;
-  text-align: center;
-  line-height: 170%;
-  font-size: 1.3em;
-}
+ label {
+   display: block;
+   text-align: center;
+   line-height: 170%;
+   font-size: 1.3em;
+ }
 
-.pauseButton {
-  width: 8%;
-  height: 100%;
-  margin: 0;
-  box-sizing: border-box;
-  border: 2px solid #036f4b;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: 0px;
-  background-color: #e5f0ed;
-}
+ .pauseButton {
+   width: 8%;
+   height: 100%;
+   margin: 0;
+   box-sizing: border-box;
+   border: 2px solid #036f4b;
+   border-radius: 5px;
+   font-size: 16px;
+   padding: 0px;
+   background-color: #e5f0ed;
+ }
 
-.pauseButton:hover {
-  background-color: #036f4b;
-  color: #e5f0ed;
-}
+ .pauseButton:hover {
+   background-color: #036f4b;
+   color: #e5f0ed;
+ }
 
-/********LOADER***********/
-/* Center the loader */
-#loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  width: 150px;
-  height: 150px;
-  margin: -75px 0 0 -75px;
-  border: 16px solid #81b7a5;
-  border-radius: 50%;
-  border-top: 16px solid #036f4b;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
+ /********LOADER***********/
+ /* Center the loader */
+ #loader {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   z-index: 1;
+   width: 150px;
+   height: 150px;
+   margin: -75px 0 0 -75px;
+   border: 16px solid #81b7a5;
+   border-radius: 50%;
+   border-top: 16px solid #036f4b;
+   width: 120px;
+   height: 120px;
+   -webkit-animation: spin 2s linear infinite;
+   animation: spin 2s linear infinite;
+ }
 
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
+ @-webkit-keyframes spin {
+   0% { -webkit-transform: rotate(0deg); }
+   100% { -webkit-transform: rotate(360deg); }
+ }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+ @keyframes spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+ }
 
-/* Add animation to "page content" */
-.animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 2s;
-  animation-name: animatebottom;
-  animation-duration: 2s
-}
+ /* Add animation to "page content" */
+ .animate-bottom {
+   position: relative;
+   -webkit-animation-name: animatebottom;
+   -webkit-animation-duration: 2s;
+   animation-name: animatebottom;
+   animation-duration: 2s
+ }
 
-@-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 }
-  to { bottom:0px; opacity:1 }
-}
+ @-webkit-keyframes animatebottom {
+   from { bottom:-100px; opacity:0 }
+   to { bottom:0px; opacity:1 }
+ }
 
-@keyframes animatebottom {
-  from{ bottom:-100px; opacity:0 }
-  to{ bottom:0; opacity:1 }
-}
+ @keyframes animatebottom {
+   from{ bottom:-100px; opacity:0 }
+   to{ bottom:0; opacity:1 }
+ }
 
-/*****************************/
-/*********ACCORDITION*********/
-/*****************************/
 
-button.accordion {
-  background-color: #4e9a81;
-  color: #e5f0ed;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  height: 80px;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
+ .cssDisplay {
+   background-color: #FFFFFF;
+   color: #000000;
+   border: 10px inset #6D6D6D;
+   padding: 14px;
+   margin: 25px;
+   font-family: 'arial black';
+   text-align: center;
+ }
 
-  margin-top: 0.5%;
-	margin-bottom: 0.5%;
-  /* cards effect */
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
-	transition: 0.2s;
+
+ .canvas {
+   width: 100%;
+   height: 400px;
+   background: -webkit-gradient(linear,0% 0%,0% 100%, from(#224181), to(#071e51) );
+   color: white;
+   text-align: center;
+   vertical-align: middle;
+   line-height: 400px;
+ }
+
+ .panel canvas, .overlay {
+   position: absolute;
+   /*padding: 3%;*/
+   width: 100%;
+   max-width: auto;
+   height: 400px;
+   color: white;
+ }
+
+ .overlay {
+   /*display: -webkit-flex; /* Safari */
+   -webkit-justify-content: center; /* Safari 6.1+ */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   z-index: 1;
+ }
+
+ /* ACCORDION */
+
+ button.accordion {
+    background-color: #4e9a81;
+    color: #e5f0ed;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    height: 80px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+
+    margin-top: 0.5%;
+  	margin-bottom: 0.5%;
+    /* cards effect */
+  	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
 }
 
 button.accordion.active, button.accordion:hover {
@@ -235,19 +276,12 @@ button.accordion.active, button.accordion:hover {
 }
 
 div.panel {
-  width: auto;
-  /*height: 300px;*/
-  padding: 3%;
+  position: relative;
   display: none;
-  background-color: white;
-  /*text-align: center;*/
-  background-color: #0a2c74;
-  /*#c6e2ff;
-
-  /*display: -webkit-flex; /* Safari */
-  -webkit-justify-content: center; /* Safari 6.1+ */
-  /*display: flex;*/
-  justify-content: center;
+  width: 100%;
+  height: 400px;
+  background: -webkit-gradient(linear,0% 0%,0% 100%, from(#224181), to(#071e51) );
+  border-radius: 5px;
 }
 
 .imgBox {
@@ -313,152 +347,4 @@ img.webcamImg {
 
 .imgBox a i {
 	color: white;
-}
-
-.snow{
-	background: none;
-	font-family: Androgyne;
-	background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'),
-  url('http://www.wearewebstars.dk/codepen/img//s2.png'),
-  url('http://www.wearewebstars.dk/codepen/img//s3.png');
-	top: 0;
-	width: 100%;
-	z-index:1;
-  background-color: #FFFAFA;
-	-webkit-animation: snow 10s linear infinite;
-	-moz-animation: snow 10s linear infinite;
-	-ms-animation: snow 10s linear infinite;
-	animation: snow 10s linear infinite;
-}
-@keyframes snow {
-  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
-  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
-  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
-}
-@-moz-keyframes snow {
-  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
-  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
-  100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
-}
-@-webkit-keyframes snow {
-  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
-  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
-  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
-}
-@-ms-keyframes snow {
-  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
-  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
-  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
-}
-
-
-/* OTHER ANIMATION */
-
-@keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@-webkit-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@-moz-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@-ms-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-webkit-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-moz-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-ms-keyframes move-clouds-back {
-    from {background-position: 0;}
-    to {background-position:10000px 0;}
-}
-.stars, .twinkling, .clouds {
-  /*position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;*/
-  width:100%;
-  height:100%;
-  display:block;
-}
-.stars {
-  background: url(../images/stars.png) repeat top center;
-  z-index:0;
-}
-
-.twinkling{
-  background:transparent url(../images/twinkling.png) repeat top center;
-  z-index:1;
-
-  -moz-animation:move-twink-back 200s linear infinite;
-  -ms-animation:move-twink-back 200s linear infinite;
-  -o-animation:move-twink-back 200s linear infinite;
-  -webkit-animation:move-twink-back 200s linear infinite;
-  animation:move-twink-back 200s linear infinite;
-}
-.clouds{
-  background:transparent url(../images/clouds.png) repeat top center;
-  z-index:3;
-  -moz-animation:move-clouds-back 200s linear infinite;
-  -ms-animation:move-clouds-back 200s linear infinite;
-  -o-animation:move-clouds-back 200s linear infinite;
-  -webkit-animation:move-clouds-back 200s linear infinite;
-  animation:move-clouds-back 200s linear infinite;
-}
-
-/* Animations */
-
-@-webkit-keyframes spin {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes spin {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-@keyframes spin {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-
-@keyframes rotation {
-
-  from {
-    transform: rotate( 0deg );
-  }
-
-  to {
-    transform: rotate( 360deg );
-  }
-}
-
-/* Space */
-
-.space {
-  animation: spin 40s linear infinite;
-  /*animation: spin 240s linear infinite;*/
-  background-size: 240px;
-  backface-visibility: visible;
-
-  /* Had to base64 SVG background for FF compatibility */
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI0MCAyNDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0MCAyNDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxyZWN0IHg9IjEwNiIgeT0iOTAiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz48cmVjdCB4PSI3NCIgeT0iNjMiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIyMyIgeT0iNjYiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSI1MCIgeT0iMTEwIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iNjMiIHk9IjEyOCIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjQ1IiB5PSIxNDkiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSI5MiIgeT0iMTUxIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iNTgiIHk9IjgiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxNDciIHk9IjMzIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIi8+PHJlY3QgeD0iOTEiIHk9IjQzIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iMTY5IiB5PSIyOSIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjE4MiIgeT0iMTkiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxNjEiIHk9IjU5IiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iMTM4IiB5PSI5NSIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjE5OSIgeT0iNzEiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiLz48cmVjdCB4PSIyMTMiIHk9IjE1MyIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPjxyZWN0IHg9IjEyOCIgeT0iMTYzIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iMjA1IiB5PSIxNzQiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxNTIiIHk9IjIwMCIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjUyIiB5PSIyMTEiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz48cmVjdCB5PSIxOTEiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxMTAiIHk9IjE4NCIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjwvc3ZnPg==);
 }

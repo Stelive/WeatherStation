@@ -21,11 +21,14 @@ var urlSwitzerlandFlag = "https://icon-icons.com/icons2/266/PNG/128/Switzerland_
   * @param {Int?} temperature
   * @returns {HTML Accordion} return the prepare accordion
   */
+
 function generateAccordion(object) {
 
   //create the elements
     var button = document.createElement('button');
+    var canvas = document.createElement('canvas');
     var panel = document.createElement('div');
+    var overlay = document.createElement('div');
     var imgDiv = document.createElement('div');
     var textDiv = document.createElement('div');
     var imgTextDiv = document.createElement('div');
@@ -40,10 +43,13 @@ function generateAccordion(object) {
     //add the class
     button.classList.add("accordion");
     panel.classList.add("panel")
+    canvas.classList.add("canvas");
+    overlay.classList.add('overlay');
     panel.className += " snow";
-    imgDiv.classList.add("imgbox");
+    imgDiv.classList.add("imgBox");
     textDiv.classList.add("descriptionBox");
     imgTextDiv.classList.add("text-block");
+
     //img.classList.add("webcamImg");
     a.classList.add("material-icons");
 
@@ -52,6 +58,7 @@ function generateAccordion(object) {
     button.id = object.city;
     panel.id = object.city;
     imgDiv.id = object.city + "img";
+    canvas.id = "stars";
 
     //fill the elements
     button.textContent = object.city + ", " + object.region + ", " + object.nation;
@@ -67,21 +74,15 @@ function generateAccordion(object) {
     if (object.nation == "Svizzera")
       flag.src = urlSwitzerlandFlag;
 */
-//Questa funzione va inserita da un'altra parte 
-    var onClick = function(event){
-      var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
-      weatherStations.forEach(function(weatherStation){
-        takeImg(weatherStation);
-      });
-    };
-    button.addEventListener('click', onClick);
 
     //append to page
     document.getElementById("container").appendChild(button);
     document.getElementById("container").appendChild(panel);
     button.appendChild(flag);
-    panel.appendChild(imgDiv);
-    panel.appendChild(textDiv);
+    panel.appendChild(canvas);
+    panel.appendChild(overlay);
+    overlay.appendChild(imgDiv);
+    overlay.appendChild(textDiv);
     //imgDiv.appendChild(img);
     imgDiv.appendChild(imgTextDiv);
     imgTextDiv.appendChild(a);
@@ -90,10 +91,24 @@ function generateAccordion(object) {
     textDiv.appendChild(p2);
     textDiv.appendChild(p3);
 
+    var onClick = function(event){
+    var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
+        weatherStations.forEach(function(weatherStation){
+          if(weatherStation.station.city == object.city)
+            takeImg(weatherStation);
+          });
+        };
+        button.addEventListener('click', onClick);
+
 }
 
+/**
+ * Function that retrun an img for the button is clicked
+ * @param {Json} json - the json take from the site
+ */
+
 function takeImg(json){
-  var div = document.getElementById(json.city + "img");
+  var div = document.getElementById(json.station.city + "img");
   var img = document.createElement('img');
   img.src = json.station.image_url;
   img.classList.add("webcamImg");

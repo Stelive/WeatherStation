@@ -21,7 +21,7 @@
 
     <div id="loader"></div>
 
-    <div class="containe animate-bottom" id="container">
+    <div class="container animate-bottom" id="container">
 
       <!-- ALL CODE HERE -->
       <div class="title" id="title">Weather Station</div>
@@ -31,54 +31,16 @@
         <input type="search" id="search" placeholder="Search..." />
         <label for="country">Country</label>
         <select class="country" id="country" name="country">
-          <option>country 1</option>
-          <option>country 2</option>
+          <option>Italia</option>
+          <option>Francia</option>
+          <option>Svizzera</option>
         </select>
 
         <label for="update">Last Update: </label>
-        <button class="pauseButton">Pause</button>
+        <button class="pauseButton" onclick="pauseRotate()" id="pause">Pause</button>
 
       </div> <!-- settings div -->
 
-      <button class="accordion">Immagine normale</button>
-      <div class="panel">
-        <div class="imgBox">
-          <img class="webcamImg" src="http://www.dianieye.com/dailypict/BDP-2017-11-29-1430.jpg" alt="Nature" style="width:100%;">
-          <div class="text-block">
-            <a href="#"><i class="material-icons">&#xE55F;</i></a>
-          </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-
-      <button class="accordion">Immagine lunga</button>
-      <div class="panel space">
-
-        <div class="imgBox">
-          <img class="webcamImg" src="https://i.ytimg.com/vi/l_oHKMxND-I/maxresdefault.jpg" alt="Nature" style="width:100%;">
-          <div class="text-block">
-            <a href="#"><i class="material-icons">&#xE55F;</i></a>
-          </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-
-      <button class="accordion">Arolla, Hérens, Svizzera</button>
-      <div class="panel snow">
-        <div class="imgBox">
-          <img class="webcamImg" src="http://www.arolla.com/pigne/pignex.jpg" alt="Nature" style="width:100%;">
-          <div class="text-block">
-            <a href="#"><i class="material-icons">&#xE55F;</i></img></a>
-          </div>
-        </div>
-        <div class="descriptionBox" id="descriptionBox">
-        <label>Location Name: Arolla, Hérens, Svizzera</label>
-          <img src="https://www.amcharts.com/wp-content/themes/amcharts2/css/img/icons/weather/animated/cloudy-day-1.svg">
-          <p>Latitudine: "46.0249702"</p>
-          <p>Longitudine": "7.480910999999992"</p>
-          <p>Elevazione: 2084</p>
-        </div>
-      </div>
 
     </div> <!-- container div -->
 
@@ -86,9 +48,9 @@
 	<!-- FILE JS / JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!-- Library JS files -->
-	<script src="js/function.js"></script>
   <script src="js/ajaxCall.js"></script>
   <script src="js/htmlGenerator.js"></script>
+  <script src="js/function.js"></script>
   <!-- Main JS file -->
   <script src="js/main.js"></script>
   <!--<script src="js/snow.js"></script>-->
