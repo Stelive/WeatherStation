@@ -133,6 +133,25 @@
    line-height: 170%;
    font-size: 1.3em;
  }
+
+ .temperature {
+   margin-left: -30%;
+   font-size: 1.2em;
+ }
+
+ .flag{
+   float: right;
+   width: 60px;
+   height: 60px;
+   /*padding-left: 20%;*/
+ }
+
+ .tempreatureAndFlag {
+   align-items: center;
+   display: flex;
+   justify-content: space-between;
+ }
+
  .pauseButton {
    width: 8%;
    height: 100%;
@@ -336,9 +355,4 @@
  }
  .imgBox a i {
    color: white;
- }
- .flag{
-   float: right;
-   width: 60px;
-   height: 60px;
  }

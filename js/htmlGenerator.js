@@ -31,7 +31,9 @@ function generateAccordion(object) {
     var textBlock = document.createElement('div');
     var imgDiv = document.createElement('div');
     var textDiv = document.createElement('div');
+    var divTemperatureAndFlag = document.createElement('div');
     var flag = document.createElement('img');
+    var temperature = document.createElement('label');
     var label = document.createElement('label');
     var p1 = document.createElement('p');
     var p2 = document.createElement('p');
@@ -45,20 +47,41 @@ function generateAccordion(object) {
     panel.className += " snow";
     imgDiv.classList.add("imgBox");
     textDiv.classList.add("descriptionBox");
+    divTemperatureAndFlag.className = "tempreatureAndFlag";
     flag.classList.add("flag");
+    temperature.htmlFor = object.nation;
+    temperature.classList.add("temperature");
+
 
     //add id
     textDiv.id = "descriptionBox";
     button.id = object.slug;
     panel.id = object.slug;
     imgDiv.id = object.slug + "img";
-    canvas.id = "stars";
+
+    // set day or night background
+    if (object.datetime.getHours() > 17 || object.datetime.getHours() < 6) {
+        canvas.id = "stars";
+    } else {
+        canvas.id = "day";
+    }
+    // set rain or snow effects
+    if (parseFloat(object.rain) > 1) {
+        canvas.id = "rain";
+    }
+
+    flag.id = object.nation;
 
     //fill the elements
     button.textContent = object.city + ", " + object.region + ", " + object.nation;
     label.textContent = "Location: " + object.city + ", " + object.region + ", " + object.nation
     p1.textContent = "Latitudine: " + object.latitudine;
     p2.textContent = "Longitudine: " + object.longitudine;
+    if (object.temperature == null || object.temperature == "") {
+      temperature.textContent = "Missing Data";
+    } else  {
+      temperature.textContent = object.temperature + "°C";
+    }
 
 // Devi sistemare le classi!(il codice qui funziona!!!)
     //add the img of flag in the button
@@ -73,7 +96,11 @@ function generateAccordion(object) {
     //append to page
     document.getElementById("container").appendChild(button);
     document.getElementById("container").appendChild(panel);
-    button.appendChild(flag);
+    //button.appendChild(temperature);
+    //button.appendChild(flag);
+    divTemperatureAndFlag.appendChild(temperature);
+    divTemperatureAndFlag.appendChild(flag);
+    button.appendChild(divTemperatureAndFlag);
     panel.appendChild(canvas);
     panel.appendChild(overlay);
     overlay.appendChild(imgDiv);
@@ -85,8 +112,6 @@ function generateAccordion(object) {
 
     // action for button
     var onClick = function(event){
-      console.log(event.target.id);
-      console.log(object);
     var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/");
         //weatherStations.forEach(function(weatherStation){
         //console.log(weatherStations.station.slug);

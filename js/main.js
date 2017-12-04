@@ -40,6 +40,7 @@ function showPage() {
 * @returns {Object} the object with minus property */
 
 function createweatherStation(object){
+
   var weatherStation = {
     city : "",
     nation : "",
@@ -47,7 +48,9 @@ function createweatherStation(object){
     temperature : "",
     latitudine : "",
     longitudine : "",
-    slug : ""
+    slug : "",
+    datetime : new Date(object.datetime),
+    rain: ""
   };
   weatherStation.city = object.station.city;
   weatherStation.nation = object.station.nation.name;
@@ -56,6 +59,9 @@ function createweatherStation(object){
   weatherStation.latitudine = object.station.lat;
   weatherStation.longitudine = object.station.lng;
   weatherStation.slug = object.station.slug;
+  weatherStation.rain = object.rain;
+  //weatherStation.datetime = object.datetime;
+  //console.log(weatherStation.datetime);
   return weatherStation
 }
 
@@ -70,15 +76,20 @@ function searchAccordion() {
     for (i = 0; i < buttons.length; i++) {
         var text = buttons[i].textContent;
         if (text.toUpperCase().indexOf(filter) > -1) {
+          var optionCountry = document.getElementById("country");
+          var selectedCountry = optionCountry.options[optionCountry.selectedIndex].value;
+          var tempreatureAndFlag = buttons[i].getElementsByClassName("tempreatureAndFlag")[0];
+          var country = tempreatureAndFlag.getElementsByClassName("flag")[0].id;
+          if (selectedCountry != country && selectedCountry != "All") {
+            buttons[i].style.display = "none";
+          } else {
             buttons[i].style.display = "flex";
+          }
         } else {
             buttons[i].style.display = "none";
         }
     }
 }
-
-
-
 
 
 loadPage();

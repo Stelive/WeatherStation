@@ -30,7 +30,8 @@
         <label for="station">Station Name</label>
         <input type="search" id="search" onkeyup="searchAccordion()" placeholder="Search..." />
         <label for="country">Country</label>
-        <select class="country" id="country" name="country">
+        <select class="country" id="country" name="country" onChange="searchAccordion()">
+          <option>All</option>
           <option>Italia</option>
           <option>Francia</option>
           <option>Svizzera</option>

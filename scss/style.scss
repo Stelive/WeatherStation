@@ -153,6 +153,16 @@
    font-size: 1.3em;
  }
 
+ .temperature {
+   padding-right: 20%;
+ }
+
+ .tempreatureAndFlag {
+   align-items: center;
+   display: flex;
+   justify-content: space-between;
+ }
+
  .pauseButton {
    width: 8%;
    height: 100%;
