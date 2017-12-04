@@ -59,6 +59,28 @@ function createweatherStation(object){
   return weatherStation
 }
 
+function searchAccordion() {
+    // Declare variables
+    var input, filter,  a, i;
+    input = document.getElementById('search');
+    filter = input.value.toUpperCase();
+    buttons = document.getElementsByClassName("accordion");
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < buttons.length; i++) {
+        var text = buttons[i].textContent;
+        if (text.toUpperCase().indexOf(filter) > -1) {
+            buttons[i].style.display = "flex";
+        } else {
+            buttons[i].style.display = "none";
+        }
+    }
+}
+
+
+
+
+
 loadPage();
 //function  main(){
   //setInterval(function(){

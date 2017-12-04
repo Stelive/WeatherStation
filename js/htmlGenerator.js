@@ -45,6 +45,7 @@ function generateAccordion(object) {
     panel.className += " snow";
     imgDiv.classList.add("imgBox");
     textDiv.classList.add("descriptionBox");
+    flag.classList.add("flag");
 
     //add id
     textDiv.id = "descriptionBox";
@@ -59,7 +60,7 @@ function generateAccordion(object) {
     p1.textContent = "Latitudine: " + object.latitudine;
     p2.textContent = "Longitudine: " + object.longitudine;
 
-/* Devi sistemare le classi!(il codice qui funziona!!!)
+// Devi sistemare le classi!(il codice qui funziona!!!)
     //add the img of flag in the button
     if (object.nation == "Italia")
       flag.src = urlItalianFlag;
@@ -67,7 +68,7 @@ function generateAccordion(object) {
       flag.src = urlFrenchFlag;
     if (object.nation == "Svizzera")
       flag.src = urlSwitzerlandFlag;
-*/
+
 
     //append to page
     document.getElementById("container").appendChild(button);
