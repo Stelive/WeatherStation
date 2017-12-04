@@ -1,0 +1,362 @@
+/**
+ * @file: style.scss
+ * @author: Gruppo 7
+ * @members:
+  - Stefano Pedroli
+  - Alessando Oppedisano
+  - Lorenzo Bergamasco
+  - Amedeo Martello
+ * @lesson: 17 - More jQuery
+ * @numberOfTheExercise: 1
+ * @exerciseTitle: Weather Station
+ */
+
+ $main_color: #036f4b;
+ $main_color-3: #4e9a81;
+ $main_color-9: #e5f0ed;
+ $main_color-2: #358b6e;
+ $main_color-5: #81b7a5;
+
+ $title_height: 100px;
+ $panel_height: 400px;
+ $accordion_button_height: 80px;
+
+
+
+ .cssDisplay {
+   background-color: #FFFFFF;
+   color: #000000;
+   border: 10px inset #6D6D6D;
+   padding: 14px;
+   margin: 25px;
+   font-family: 'arial black';
+   text-align: center;
+ }
+
+ .container {
+   background-color: #FFFFFF;
+   margin: auto;
+   width: 90%;
+   height: auto;
+   margin-bottom: 5%;
+ }
+
+ /*****************************/
+ /***********TITLE*************/
+ /*****************************/
+
+ .title {
+   background-color: #FFFFFF;
+   color: $main-color;
+   font-size: 3em;
+   width: 100%;
+   height: $title_height;
+   text-align: center;
+   vertical-align: middle;
+   line-height: $title_height;
+ }
+
+ /*****************************/
+ /**********SETTINGS***********/
+ /*****************************/
+
+ .seattings {
+   background-color: $main_color-3;
+   width: 94%;
+   height: 50px;
+   border-radius: 9px;
+   padding-top: 50px;
+   padding-bottom: 50px;
+   padding-left: 3%;
+   padding-right: 3%;
+
+   color: $main_color-9;
+   font-size: 1.5em;
+
+   display: -webkit-flex; /* Safari */
+   -webkit-justify-content: space-around; /* Safari 6.1+ */
+   display: flex;
+   justify-content: space-around;
+
+   /* cards effect */
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+   transition: 0.2s;
+   margin-bottom: 2%;
+ }
+ .seattings:hover {
+   /* cards effect */
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+ }
+
+ input, select, textarea, button {
+   color: $main_color-2;
+ }
+
+ ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+   color: $main_color-3;
+ }
+ :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: $main_color-3;
+   opacity:  1;
+ }
+ ::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: $main_color-3;
+   opacity:  1;
+ }
+ :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: $main_color-3;
+ }
+ ::-ms-input-placeholder { /* Microsoft Edge */
+   color: $main_color-3;
+ }
+
+ ::placeholder { /* Most modern browsers support this now. */
+   color: $main_color-3;
+ }
+
+ input[type=search] {
+   width: 9%;
+   margin: 0;
+   box-sizing: border-box;
+   border: 2px solid $main-color;
+   border-radius: 5px;
+   font-size: 16px;
+   background-color: $main_color-9;
+   background-image: url('https://png.icons8.com/?id=131&size=23');
+   background-position: 10px 10px;
+   background-repeat: no-repeat;
+   padding: 12px 20px 12px 40px;
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+ }
+
+ input[type=search]:focus {
+   width: 25%;
+ }
+
+ .country {
+   width: 15%;
+   height: 100%;
+   margin: 0;
+   box-sizing: border-box;
+   border: 2px solid $main-color;
+   border-radius: 5px;
+   font-size: 16px;
+   background-color: $main_color-9;
+   padding: 12px 20px 12px 40px;
+ }
+
+ label {
+   display: block;
+   text-align: center;
+   line-height: 170%;
+   font-size: 1.3em;
+ }
+
+ .pauseButton {
+   width: 8%;
+   height: 100%;
+   margin: 0;
+   box-sizing: border-box;
+   border: 2px solid $main-color;
+   border-radius: 5px;
+   font-size: 16px;
+   padding: 0px;
+   background-color: $main_color-9;
+ }
+
+ .pauseButton:hover {
+   background-color: $main-color;
+   color: $main_color-9;
+ }
+
+ /********LOADER***********/
+ /* Center the loader */
+ #loader {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   z-index: 1;
+   width: 150px;
+   height: 150px;
+   margin: -75px 0 0 -75px;
+   border: 16px solid $main_color-5;
+   border-radius: 50%;
+   border-top: 16px solid $main-color;
+   width: 120px;
+   height: 120px;
+   -webkit-animation: spin 2s linear infinite;
+   animation: spin 2s linear infinite;
+ }
+
+ @-webkit-keyframes spin {
+   0% { -webkit-transform: rotate(0deg); }
+   100% { -webkit-transform: rotate(360deg); }
+ }
+
+ @keyframes spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+ }
+
+ /* Add animation to "page content" */
+ .animate-bottom {
+   position: relative;
+   -webkit-animation-name: animatebottom;
+   -webkit-animation-duration: 2s;
+   animation-name: animatebottom;
+   animation-duration: 2s
+ }
+
+ @-webkit-keyframes animatebottom {
+   from { bottom:-100px; opacity:0 }
+   to { bottom:0px; opacity:1 }
+ }
+
+ @keyframes animatebottom {
+   from{ bottom:-100px; opacity:0 }
+   to{ bottom:0; opacity:1 }
+ }
+
+
+ .cssDisplay {
+   background-color: #FFFFFF;
+   color: #000000;
+   border: 10px inset #6D6D6D;
+   padding: 14px;
+   margin: 25px;
+   font-family: 'arial black';
+   text-align: center;
+ }
+
+
+ .canvas {
+   width: 100%;
+   height: $panel_height;
+   background: -webkit-gradient(linear,0% 0%,0% 100%, from(#224181), to(#071e51) );
+   color: white;
+   text-align: center;
+   vertical-align: middle;
+   line-height: $panel_height;
+ }
+
+ .panel canvas, .overlay {
+   position: absolute;
+   /*padding: 3%;*/
+   width: 100%;
+   max-width: auto;
+   height: $panel_height;
+   color: white;
+ }
+
+ .overlay {
+   /*display: -webkit-flex; /* Safari */
+   -webkit-justify-content: center; /* Safari 6.1+ */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   z-index: 1;
+ }
+
+ /* ACCORDION */
+
+ button.accordion {
+    background-color: $main_color-3;
+    color: $main_color-9;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    height: $accordion_button_height;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+
+    margin-top: 0.5%;
+  	margin-bottom: 0.5%;
+    /* cards effect */
+  	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+}
+
+button.accordion.active, button.accordion:hover {
+  background-color: $main_color-2;
+}
+
+div.panel {
+  position: relative;
+  display: none;
+  width: 100%;
+  height: $panel_height;
+  background: -webkit-gradient(linear,0% 0%,0% 100%, from(#224181), to(#071e51) );
+  border-radius: 5px;
+}
+
+.imgBox {
+  float: left;
+  /* width: 100%; */
+  max-width: 50%;
+  /* height: 300px; */
+  max-height: 100%;
+  margin-right: 3%;
+}
+@media only screen and (min-width: 1250px) {
+  img.webcamImg {
+    width: auto !important;
+    max-width: 100%;
+  }
+}
+
+img.webcamImg {
+  width: 100%;
+  /*max-width: 300px;*/
+  max-height: $panel_height - 100px;
+}
+
+.webcamImg {
+  /* style effects */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 8px;
+  /* img filter */
+  -webkit-filter: saturate(2);
+  filter: saturate(2);
+  -webkit-filter: contrast(120%);
+  filter: contrast(120%);
+}
+
+.imgBox:hover {
+  position: relative;
+}
+
+.imgBox:hover img {
+	-webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
+  filter: blur(2px);
+}
+
+.imgBox:hover div {
+	display:block;
+}
+
+.text-block {
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.material-icons {
+	font-size: 8em;
+}
+
+.imgBox a i {
+	color: white;
+}

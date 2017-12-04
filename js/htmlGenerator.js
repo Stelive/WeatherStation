@@ -22,6 +22,7 @@ var urlSwitzerlandFlag = "https://icon-icons.com/icons2/266/PNG/128/Switzerland_
 */
 function generateAccordion(object) {
 
+    //console.log(object);
     //create the elements
     var button = document.createElement('button');
     var canvas = document.createElement('canvas');
@@ -47,9 +48,9 @@ function generateAccordion(object) {
 
     //add id
     textDiv.id = "descriptionBox";
-    button.id = object.city;
-    panel.id = object.city;
-    imgDiv.id = object.city + "img";
+    button.id = object.slug;
+    panel.id = object.slug;
+    imgDiv.id = object.slug + "img";
     canvas.id = "stars";
 
     //fill the elements
@@ -83,11 +84,14 @@ function generateAccordion(object) {
 
     // action for button
     var onClick = function(event){
-    var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
-        weatherStations.forEach(function(weatherStation){
-          if(weatherStation.station.city == object.city)
-            takeImg(weatherStation);
-          });
+      console.log(event.target.id);
+      console.log(object);
+    var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/");
+        //weatherStations.forEach(function(weatherStation){
+        //console.log(weatherStations.station.slug);
+          if(weatherStations.station.slug == object.slug) {
+            takeImg(weatherStations);
+          }
      };
      button.addEventListener('click', onClick);
 }
@@ -99,25 +103,42 @@ function generateAccordion(object) {
 function takeImg(json){
 
   //create the elements
+  //console.log(json);
   var imgTextDiv = document.createElement('div');
-  var div = document.getElementById(json.station.city + "img");
+  var div = document.getElementById(json.station.slug + "img");
+  div.innerHTML = "";
+
   var img = document.createElement('img');
-  var a = document.createElement('a');
-  var i = document.createElement('i');
-
-  //fill the elements
-  img.src = json.station.image_url;
-  i.innerHTML = "";
-  a.href = "#";
-
-  //add the class
-  imgTextDiv.classList.add("text-block");
-  img.classList.add("webcamImg");
-  i.classList.add("material-icons");
-
-  //append to page
+  img.className = "webcamImg";
+  // if url webcam there isn't we put img_url of city
+  if (json.station.webcam == ""){
+    img.src = json.station.image_url;
+  } else {
+    //if (imageExists(json.station.webcam)) {
+      img.src = json.station.webcam;
+    /*} else {
+      img.src = json.station.image_url;
+    }*/
+  }
+  img.alt = json.station.city;
   div.appendChild(img);
-  div.appendChild(imgTextDiv);
-  imgTextDiv.appendChild(a);
+  var text_block = document.createElement('div');
+  text_block.className = "text-block";
+  var a = document.createElement('a');
+  a.href = "#";
+  var i = document.createElement('i');
+  i.className = "material-icons";
+  i.innerHTML = "";
   a.appendChild(i);
+  text_block.appendChild(a);
+  div.appendChild(text_block);
+
+}
+
+function imageExists(image_url){
+
+  var http = new XMLHttpRequest();
+  http.open('HEAD', image_url, false);
+  return http.status != 404;
+
 }

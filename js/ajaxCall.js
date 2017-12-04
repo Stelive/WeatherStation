@@ -33,6 +33,7 @@
         showPage()
      }
 };
-   request.send(null); var object = JSON.parse(request.responseText);
+   request.send(null);
+   var object = JSON.parse(request.responseText);
    return object
  }
