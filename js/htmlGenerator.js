@@ -21,8 +21,7 @@ var urlSwitzerlandFlag = "https://icon-icons.com/icons2/266/PNG/128/Switzerland_
 * @param {String} accordionName - name of accordion
 */
 function generateAccordion(object) {
-  var ciao = "ciao";
-  
+
     //console.log(object);
     //create the elements
     var button = document.createElement('button');
@@ -152,7 +151,8 @@ function takeImg(json){
   var text_block = document.createElement('div');
   text_block.className = "text-block";
   var a = document.createElement('a');
-  a.href = "#";
+  a.href = positioningSystem(json.station.lat, json.station.lng);
+  a.target = "_blank";
   var i = document.createElement('i');
   i.className = "material-icons";
   i.innerHTML = "";
@@ -168,4 +168,8 @@ function imageExists(image_url){
   http.open('HEAD', image_url, false);
   return http.status != 404;
 
+}
+
+function positioningSystem(lat, long) {
+  return "https://www.google.it/maps/@" + lat + "," + long + ",15z?hl=it";
 }
