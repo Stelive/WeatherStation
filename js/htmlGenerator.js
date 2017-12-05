@@ -61,13 +61,26 @@ function generateAccordion(object) {
 
     // set day or night background
     if (object.datetime.getHours() > 17 || object.datetime.getHours() < 6) {
+      if (parseFloat(object.rain) > 1.0) {
+        canvas.id = "rain";
+      } else {
         canvas.id = "stars";
+      }
+      canvas.style.background = "-webkit-linear-gradient(bottom, rgb(7, 48, 109) 40%, rgb(16, 16, 16) 80%)";
     } else {
+      if (parseFloat(object.rain) > 1.0) {
+        canvas.id = "rain";
+        canvas.style.background = "-webkit-linear-gradient(bottom, rgb(0, 41, 103) 40%, rgb(14, 26, 43) 80%)";
+      } else {
         canvas.id = "day";
+        canvas.style.background = "-webkit-linear-gradient(bottom, rgb(160, 198, 255) 40%, rgb(92, 144, 218) 80%)";
+      }
     }
     // set rain or snow effects
-    if (parseFloat(object.rain) > 1) {
+    //console.log(object.rain);
+    if (parseFloat(object.rain) > 1.0) {
         canvas.id = "rain";
+        canvas.style.background = "-webkit-linear-gradient(bottom, rgb(126, 158, 206) 40%, rgb(197, 208, 226) 80%)";
     }
 
     flag.id = object.nation;
