@@ -21,7 +21,8 @@ var urlSwitzerlandFlag = "https://icon-icons.com/icons2/266/PNG/128/Switzerland_
 * @param {String} accordionName - name of accordion
 */
 function generateAccordion(object) {
-
+  var ciao = "ciao";
+  
     //console.log(object);
     //create the elements
     var button = document.createElement('button');
