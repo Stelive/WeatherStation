@@ -83,7 +83,6 @@ function generateAccordion(object) {
       temperature.textContent = object.temperature + "°C";
     }
 
-// Devi sistemare le classi!(il codice qui funziona!!!)
     //add the img of flag in the button
     if (object.nation == "Italia")
       flag.src = urlItalianFlag;

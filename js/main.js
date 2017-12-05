@@ -11,7 +11,6 @@
  * @exerciseTitle: Weather Station
  */
 
-
  var skyColor = {
    daySnow : "#c6e2ff",
    daySun : "#b2e6f4",
@@ -52,6 +51,8 @@ function createweatherStation(object){
     datetime : new Date(object.datetime),
     rain: ""
   };
+
+  //assignament the object's property
   weatherStation.city = object.station.city;
   weatherStation.nation = object.station.nation.name;
   weatherStation.region = object.station.region.name;
@@ -61,10 +62,13 @@ function createweatherStation(object){
   weatherStation.slug = object.station.slug;
   weatherStation.rain = object.rain;
   //weatherStation.datetime = object.datetime;
-  //console.log(weatherStation.datetime);
+
   return weatherStation
 }
 
+/**
+ * searchAccordion search according to the name and nation
+ */
 function searchAccordion() {
     // Declare variables
     var input, filter,  a, i;
@@ -80,28 +84,47 @@ function searchAccordion() {
           var selectedCountry = optionCountry.options[optionCountry.selectedIndex].value;
           var tempreatureAndFlag = buttons[i].getElementsByClassName("tempreatureAndFlag")[0];
           var country = tempreatureAndFlag.getElementsByClassName("flag")[0].id;
+          var pannels = document.getElementsByClassName("panel");
+
           if (selectedCountry != country && selectedCountry != "All") {
             buttons[i].style.display = "none";
+            pannels[i].style.display = "none";
+            console.log(pannels[i]);
           } else {
             buttons[i].style.display = "flex";
           }
         } else {
             buttons[i].style.display = "none";
+            pannels[i].style.display = "none";
+            console.log(pannels[i]);
         }
     }
 }
 
 
 loadPage();
-//function  main(){
-  //setInterval(function(){
-  var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
-    weatherStations.forEach(function(weatherStation) {
-      //console.log(weatherStation);
-      var weatherStation = createweatherStation(weatherStation);
-      generateAccordion(weatherStation);
-    });
-//   }, 10000);
+var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
+weatherStations.forEach(function(weatherStation) {
+    var weatherStation = createweatherStation(weatherStation);
+    generateAccordion(weatherStation);
+});
+
+setTimeout(function(){
+  setInterval(function(){
+    var weatherStations = makeGetRequestAsy("https://www.torinometeo.org/api/v1/realtime/data/");
+/*
+      weatherStations.forEach(function(weatherStation) {
+          var weatherStation = createweatherStation(weatherStation);
+          generateAccordion(weatherStation);
+*/
+    console.log("ehiiiis");
+
+
+  },30000);
+},30000);
+
+
+
 //}
 /*
 var program = setInterval(function(){main();}, 4200);
