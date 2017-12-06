@@ -88,14 +88,12 @@ function searchAccordion() {
           if (selectedCountry != country && selectedCountry != "All") {
             buttons[i].style.display = "none";
             pannels[i].style.display = "none";
-            console.log(pannels[i]);
           } else {
             buttons[i].style.display = "flex";
           }
         } else {
             buttons[i].style.display = "none";
             pannels[i].style.display = "none";
-            console.log(pannels[i]);
         }
     }
 }
@@ -109,10 +107,16 @@ weatherStations.forEach(function(weatherStation) {
 
 setTimeout(function(){
   setInterval(function(){
+    destroyedBody();
     var weatherStations = makeGetRequestAsy("https://www.torinometeo.org/api/v1/realtime/data/");
+<<<<<<< HEAD
 
   },5000);
 },5000);
+=======
+  },3000);
+},3000);
+>>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
 
 //}
 
