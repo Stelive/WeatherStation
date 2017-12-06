@@ -110,8 +110,9 @@ weatherStations.forEach(function(weatherStation) {
 setTimeout(function(){
   setInterval(function(){
     var weatherStations = makeGetRequestAsy("https://www.torinometeo.org/api/v1/realtime/data/");
-  },30000);
-},30000);
+
+  },5000);
+},5000);
 
 //}
 
