@@ -61,7 +61,6 @@ function createweatherStation(object){
   weatherStation.longitudine = object.station.lng;
   weatherStation.slug = object.station.slug;
   weatherStation.rain = object.rain;
-  //weatherStation.datetime = object.datetime;
 
   return weatherStation
 }
@@ -101,7 +100,6 @@ function searchAccordion() {
     }
 }
 
-
 loadPage();
 var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
 weatherStations.forEach(function(weatherStation) {
@@ -112,35 +110,10 @@ weatherStations.forEach(function(weatherStation) {
 setTimeout(function(){
   setInterval(function(){
     var weatherStations = makeGetRequestAsy("https://www.torinometeo.org/api/v1/realtime/data/");
-/*
-      weatherStations.forEach(function(weatherStation) {
-          var weatherStation = createweatherStation(weatherStation);
-          generateAccordion(weatherStation);
-*/
-    console.log("ehiiiis");
-
-
   },30000);
 },30000);
 
-
-
 //}
-/*
-var program = setInterval(function(){main();}, 4200);
-var pause = document.getElementById("pause");
-var onClick= function(event){
-  if(pause.textContent = "Pause"){
-    pause.innerHTML = "On"
-    clearInterval(program);
-        program = setInterval(function(){main();}, 4200);
-  }else{
-    pause.innerHTML = "Pause"
-    clearInterval(intervalId);
-       intervalId = null;main();
-  }
-pause.addEventListener('click', onClick);
-*/
 
 var acc = document.getElementsByClassName("accordion");
 for (var i = 0; i < acc.length; i++) {
@@ -154,14 +127,19 @@ for (var i = 0; i < acc.length; i++) {
             canvas.getContext('2d').clearRect(0, 0, canvas.width,
             canvas.height);
         } else {
-            panel.style.display = "block";
-            if (panel.getElementsByTagName("canvas")[0].id == "rain") {
-              rain(panel.querySelector("#rain")); // pass canvas to apply effects
-            } else if (panel.getElementsByTagName("canvas")[0].id == "snow") {
-              //snow(panel.querySelector("#snow"));
-            } else if (panel.getElementsByTagName("canvas")[0].id == "stars") {
-              setTimeout(stars, 200, panel.querySelector("#stars"));
-            }
+
+          var pannels = document.getElementsByClassName("panel");
+          for (var i = 0; i < pannels.length; i++) {
+            pannels[i].style.display = "none";
+          }
+          panel.style.display = "block";
+          if (panel.getElementsByTagName("canvas")[0].id == "rain") {
+            rain(panel.querySelector("#rain")); // pass canvas to apply effects
+          } else if (panel.getElementsByTagName("canvas")[0].id == "snow") {
+            //snow(panel.querySelector("#snow"));
+          } else if (panel.getElementsByTagName("canvas")[0].id == "stars") {
+            setTimeout(stars, 200, panel.querySelector("#stars"));
+          }
         }
     }
 }

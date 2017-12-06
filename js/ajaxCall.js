@@ -48,10 +48,13 @@ function makeGetRequestAsy(url){
   request.open('GET', url, true);
   request.send(null);
   request.addEventListener('load',function(){
+destroyedBody();
     object = JSON.parse(request.responseText);
     object.forEach(function(weatherStation) {
+
         var weatherStation = createweatherStation(weatherStation);
         generateAccordion(weatherStation);
+        console.log("shshshshshss");
     })
     return object;
   });
