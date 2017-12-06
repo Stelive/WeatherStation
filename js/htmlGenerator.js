@@ -52,24 +52,38 @@ function generateAccordion(object) {
     temperature.htmlFor = object.nation;
     temperature.classList.add("temperature");
 
+
     //add id
     textDiv.id = "descriptionBox";
     button.id = object.slug;
     panel.id = object.slug;
     imgDiv.id = object.slug + "img";
-    flag.id = object.nation;
 
     // set day or night background
     if (object.datetime.getHours() > 17 || object.datetime.getHours() < 6) {
+      if (parseFloat(object.rain) > 1.0) {
+        canvas.id = "rain";
+      } else {
         canvas.id = "stars";
+      }
+      canvas.style.background = "-webkit-linear-gradient(bottom, rgb(7, 48, 109) 40%, rgb(16, 16, 16) 80%)";
     } else {
+      if (parseFloat(object.rain) > 1.0) {
+        canvas.id = "rain";
+        canvas.style.background = "-webkit-linear-gradient(bottom, rgb(0, 41, 103) 40%, rgb(14, 26, 43) 80%)";
+      } else {
         canvas.id = "day";
-        panel.style.backgroundImage = "-webkit-linear-gradient(bottom, #d7dde6 40%, #97a8c0 80%)";
+        canvas.style.background = "-webkit-linear-gradient(bottom, rgb(160, 198, 255) 40%, rgb(92, 144, 218) 80%)";
+      }
     }
     // set rain or snow effects
-    if (parseFloat(object.rain) > 1) {
+    //console.log(object.rain);
+    if (parseFloat(object.rain) > 1.0) {
         canvas.id = "rain";
+        canvas.style.background = "-webkit-linear-gradient(bottom, rgb(126, 158, 206) 40%, rgb(197, 208, 226) 80%)";
     }
+
+    flag.id = object.nation;
 
     //fill the elements
     button.textContent = object.city + ", " + object.region + ", " + object.nation;
@@ -90,9 +104,12 @@ function generateAccordion(object) {
     if (object.nation == "Svizzera")
       flag.src = urlSwitzerlandFlag;
 
+
     //append to page
     document.getElementById("container").appendChild(button);
     document.getElementById("container").appendChild(panel);
+    //button.appendChild(temperature);
+    //button.appendChild(flag);
     divTemperatureAndFlag.appendChild(temperature);
     divTemperatureAndFlag.appendChild(flag);
     button.appendChild(divTemperatureAndFlag);
@@ -107,7 +124,9 @@ function generateAccordion(object) {
 
     // action for button
     var onClick = function(event){
-      var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/");
+    var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/");
+        //weatherStations.forEach(function(weatherStation){
+        //console.log(weatherStations.station.slug);
           if(weatherStations.station.slug == object.slug) {
             takeImg(weatherStations);
           }
@@ -122,13 +141,13 @@ function generateAccordion(object) {
 function takeImg(json){
 
   //create the elements
+  //console.log(json);
   var imgTextDiv = document.createElement('div');
   var div = document.getElementById(json.station.slug + "img");
-  var img = document.createElement('img');
-  var i = document.createElement('i');
-  var text_block = document.createElement('div');
-  var a = document.createElement('a');
+  div.innerHTML = "";
 
+  var img = document.createElement('img');
+  img.className = "webcamImg";
   // if url webcam there isn't we put img_url of city
   if (json.station.webcam == ""){
     img.src = json.station.image_url;
@@ -139,21 +158,16 @@ function takeImg(json){
       img.src = json.station.image_url;
     }*/
   }
-
-  // give a class
-  img.className = "webcamImg";
-  text_block.className = "text-block";
-  i.className = "material-icons";
-
-  //fill the elements
-  div.innerHTML = "";
   img.alt = json.station.city;
+  div.appendChild(img);
+  var text_block = document.createElement('div');
+  text_block.className = "text-block";
+  var a = document.createElement('a');
   a.href = positioningSystem(json.station.lat, json.station.lng);
   a.target = "_blank";
+  var i = document.createElement('i');
+  i.className = "material-icons";
   i.innerHTML = "";
-
-  //append the elements
-  div.appendChild(img);
   a.appendChild(i);
   text_block.appendChild(a);
   div.appendChild(text_block);
@@ -170,14 +184,4 @@ function imageExists(image_url){
 
 function positioningSystem(lat, long) {
   return "https://www.google.it/maps/@" + lat + "," + long + ",15z?hl=it";
-}
-
-function destroyedBody(){
-  var title = document.getElementById("title");
-  var settings = document.getElementById("seattings");
-  var body = document.getElementsByTagName("body");
-
-body.remove();
-  body.appendChild(title);
-  body.appendChild(title);
 }

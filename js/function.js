@@ -250,8 +250,8 @@ function stars(canvas) {
    function update() {
        if (!paused) {
            context.clearRect(0, 0, width, height);
-           context.fillStyle = "#0c0c38";
-           context.fillRect(0, 0, width, height);
+           //context.fillStyle = "#0c0c38";
+           //context.fillRect(0, 0, width, height);
            context.fill();
 
            for (var i = 0; i < stars.length; i += 1) {
