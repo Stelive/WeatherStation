@@ -136,8 +136,8 @@ function generateAccordion(object) {
 function takeImg(json){
 
   //create the elements
-  var imgTextDiv = document.createElement('div');
   var div = document.getElementById(json.station.slug + "img");
+  var imgTextDiv = document.createElement('div');
   var i = document.createElement('i');
   var img = document.createElement('img');
   var text_block = document.createElement('div');
@@ -171,24 +171,19 @@ function takeImg(json){
 
 }
 
-function imageExists(image_url){
 
-  var http = new XMLHttpRequest();
-  http.open('HEAD', image_url, false);
-  return http.status != 404;
-
-}
 
 function positioningSystem(lat, long) {
   return "https://www.google.it/maps/@" + lat + "," + long + ",15z?hl=it";
 }
 
-fucntion destroyedBody(){
-  var title = getElementsByClassName();
-  var settings = getElementsByClassName();
+function destroyedBody(){
+  var title = document.getElementById("title");
+  var settings = document.getElementById("settings");
 
-  document.getElementsByTagName('body').remove();
-  document.getElementsByTagName('body').appendChild(title);
-  document.getElementsByTagName('body').appendChild(settings);
+  $( ".accordion" ).remove();
+  $( ".panel" ).remove();
 
+  $( "#container" ).prepend(title);
+  $( "#container" ).append(settings);
 }
