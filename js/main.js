@@ -77,6 +77,7 @@ function searchAccordion() {
 
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < buttons.length; i++) {
+        //get the elements
         var text = buttons[i].textContent;
         if (text.toUpperCase().indexOf(filter) > -1) {
           var optionCountry = document.getElementById("country");
@@ -85,6 +86,7 @@ function searchAccordion() {
           var country = tempreatureAndFlag.getElementsByClassName("flag")[0].id;
           var pannels = document.getElementsByClassName("panel");
 
+          //set the style
           if (selectedCountry != country && selectedCountry != "All") {
             buttons[i].style.display = "none";
             pannels[i].style.display = "none";
@@ -98,53 +100,69 @@ function searchAccordion() {
     }
 }
 
-loadPage();
-var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
-weatherStations.forEach(function(weatherStation) {
-    var weatherStation = createweatherStation(weatherStation);
-    generateAccordion(weatherStation);
-});
+function main(){
+  loadPage();
+  var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
+  weatherStations.forEach(function(weatherStation) {
+      var weatherStation = createweatherStation(weatherStation);
+      generateAccordion(weatherStation);
+  });
 
-setTimeout(function(){
-  setInterval(function(){
-    destroyedBody();
-    var weatherStations = makeGetRequestAsy("https://www.torinometeo.org/api/v1/realtime/data/");
-<<<<<<< HEAD
-
+  var inter;
+  setTimeout(function(){
+    inter = setInterval(function(){
+      var weatherStations = makeGetRequestAsy("https://www.torinometeo.org/api/v1/realtime/data/");
+    },5000);
   },5000);
-},5000);
-=======
-  },3000);
-},3000);
->>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
+//setTimeout
+//banana
+//setTimeout
+////banana
 
-//}
+  var interval = 2000;
+  var pause = document.getElementById("pause");
+  var onClick = function(event){
 
-var acc = document.getElementsByClassName("accordion");
-for (var i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-            // pulisco il canvas ma tanto non basta per lo snow effects
-            var canvas = panel.getElementsByTagName("canvas")[0];
-            canvas.getContext('2d').clearRect(0, 0, canvas.width,
-            canvas.height);
-        } else {
-
-          var pannels = document.getElementsByClassName("panel");
-          for (var i = 0; i < pannels.length; i++) {
-            pannels[i].style.display = "none";
-          }
-          panel.style.display = "block";
-          if (panel.getElementsByTagName("canvas")[0].id == "rain") {
-            rain(panel.querySelector("#rain")); // pass canvas to apply effects
-          } else if (panel.getElementsByTagName("canvas")[0].id == "snow") {
-            //snow(panel.querySelector("#snow"));
-          } else if (panel.getElementsByTagName("canvas")[0].id == "stars") {
-            setTimeout(stars, 200, panel.querySelector("#stars"));
-          }
+        if(pause.textContent == "Pause"){
+          pause.textContent == "Active"
+          inter
+        }else{
+          pause.textContent == "Pause"
+          clearInterval(inter);
         }
-    }
+
+  };
+  pause.addEventListener('click', onClick);
+
+
+  var acc = document.getElementsByClassName("accordion");
+  for (var i = 0; i < acc.length; i++) {
+      acc[i].onclick = function(){
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+              panel.style.display = "none";
+              // pulisco il canvas ma tanto non basta per lo snow effects
+              var canvas = panel.getElementsByTagName("canvas")[0];
+              canvas.getContext('2d').clearRect(0, 0, canvas.width,
+              canvas.height);
+          } else {
+
+            var pannels = document.getElementsByClassName("panel");
+            for (var i = 0; i < pannels.length; i++) {
+              pannels[i].style.display = "none";
+            }
+            panel.style.display = "block";
+            if (panel.getElementsByTagName("canvas")[0].id == "rain") {
+              rain(panel.querySelector("#rain")); // pass canvas to apply effects
+            } else if (panel.getElementsByTagName("canvas")[0].id == "snow") {
+              //snow(panel.querySelector("#snow"));
+            } else if (panel.getElementsByTagName("canvas")[0].id == "stars") {
+              setTimeout(stars, 200, panel.querySelector("#stars"));
+            }
+          }
+      }
+  }
 }
+
+main();
