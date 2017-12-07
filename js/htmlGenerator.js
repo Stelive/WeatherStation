@@ -22,10 +22,6 @@ var urlSwitzerlandFlag = "https://icon-icons.com/icons2/266/PNG/128/Switzerland_
 */
 function generateAccordion(object) {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
     //create the elements
     var button = document.createElement('button');
     var canvas = document.createElement('canvas');
@@ -69,6 +65,7 @@ function generateAccordion(object) {
       } else {
         canvas.id = "stars";
       }
+      
       canvas.style.background = "-webkit-linear-gradient(bottom, rgb(7, 48, 109) 40%, rgb(16, 16, 16) 80%)";
     } else {
       if (parseFloat(object.rain) > 1.0) {
@@ -122,11 +119,6 @@ function generateAccordion(object) {
     // action for button
     var onClick = function(event){
     var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/");
-<<<<<<< HEAD
-=======
-        //weatherStations.forEach(function(weatherStation){
-
->>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
           if(weatherStations.station.slug == object.slug) {
             takeImg(weatherStations);
           }
@@ -141,7 +133,6 @@ function generateAccordion(object) {
 function takeImg(json){
 
   //create the elements
-<<<<<<< HEAD
   var imgTextDiv = document.createElement('div');
   var div = document.getElementById(json.station.slug + "img");
   var img = document.createElement('img');
@@ -156,18 +147,6 @@ function takeImg(json){
 
   //fill the elements
   div.innerHTML = "";
-=======
-  var div = document.getElementById(json.station.slug + "img");
-  var imgTextDiv = document.createElement('div');
-  var i = document.createElement('i');
-  var img = document.createElement('img');
-  var text_block = document.createElement('div');
-  var a = document.createElement('a');
-
-  text_block.className = "text-block";
-  i.className = "material-icons";
-  img.className = "webcamImg";
->>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
 
   // if url webcam there isn't we put img_url of city
   if (json.station.webcam == ""){
@@ -181,40 +160,37 @@ function takeImg(json){
   }
 
   img.alt = json.station.city;
-<<<<<<< HEAD
-=======
-  div.innerHTML = "";
->>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
   a.href = positioningSystem(json.station.lat, json.station.lng);
   a.target = "_blank";
   i.innerHTML = "";
 
-<<<<<<< HEAD
   //append to page
-=======
->>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
   div.appendChild(img);
   a.appendChild(i);
   text_block.appendChild(a);
   div.appendChild(text_block);
 }
-
-<<<<<<< HEAD
+/**
+ *
+ * @param  {[type]} image_url [description]
+ * @return {[type]}           [description]
+ */
 function imageExists(image_url){
   var http = new XMLHttpRequest();
   http.open('HEAD', image_url, false);
   return http.status != 404;
-
 }
-=======
 
->>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
-
+/**
+ * Open the page of google Maps and show the position of station
+ * @param  {Double} lat  latitudine
+ * @param  {Double} long longitudine
+ * @return {String} the url of page
+ */
 function positioningSystem(lat, long) {
   return "https://www.google.it/maps/@" + lat + "," + long + ",15z?hl=it";
 }
 
-<<<<<<< HEAD
 /**
  * Sobstitute the button of accordion
  */
@@ -228,16 +204,5 @@ function sobstiuteAccordion(weatherStations){
     var temperature = button.childNodes[1].childNodes[0];
     temperature.textContent = weatherStation.temperature + "°C";
   });
-console.log("ahahahahahahah");
-=======
-function destroyedBody(){
-  var title = document.getElementById("title");
-  var settings = document.getElementById("settings");
 
-  $( ".accordion" ).remove();
-  $( ".panel" ).remove();
-
-  $( "#container" ).prepend(title);
-  $( "#container" ).append(settings);
->>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
 }
