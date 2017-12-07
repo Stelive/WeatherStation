@@ -172,9 +172,9 @@ function takeImg(json){
 }
 
 /**
-*
- * @param  {[type]} image_url [description]
- * @return {[type]}           [description]
+*return if there is a error
+ * @param  {String} image_url the url of img
+ * @return {Bool}      index for the state of call
  */
 function imageExists(image_url){
   var http = new XMLHttpRequest();
