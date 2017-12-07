@@ -46,10 +46,11 @@
 function makeGetRequestAsy(url){
   var request = new XMLHttpRequest();
   request.open('GET', url, true);
-  request.send(null);
   request.addEventListener('load',function(){
-    sobstiuteAccordion(weatherStations);
+    object = JSON.parse(request.responseText);
+    sobstiuteAccordion(object);
   });
+  request.send(null);
 }
 
 function imageExists(image_url){

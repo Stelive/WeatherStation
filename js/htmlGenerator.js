@@ -65,7 +65,7 @@ function generateAccordion(object) {
       } else {
         canvas.id = "stars";
       }
-      
+
       canvas.style.background = "-webkit-linear-gradient(bottom, rgb(7, 48, 109) 40%, rgb(16, 16, 16) 80%)";
     } else {
       if (parseFloat(object.rain) > 1.0) {
@@ -170,8 +170,9 @@ function takeImg(json){
   text_block.appendChild(a);
   div.appendChild(text_block);
 }
+
 /**
- *
+*
  * @param  {[type]} image_url [description]
  * @return {[type]}           [description]
  */

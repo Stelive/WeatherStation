@@ -100,7 +100,16 @@ function searchAccordion() {
     }
 }
 
+/**
+*Make a request asynchronous
+*/
+function createCall(){
+    var weatherStations = makeGetRequestAsy("https://www.torinometeo.org/api/v1/realtime/data/");
+    setTimeout(createCall(),30000);
+}
+
 function main(){
+  //create the first page
   loadPage();
   var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
   weatherStations.forEach(function(weatherStation) {
@@ -108,33 +117,24 @@ function main(){
       generateAccordion(weatherStation);
   });
 
-  var inter;
-  setTimeout(function(){
-    inter = setInterval(function(){
-      var weatherStations = makeGetRequestAsy("https://www.torinometeo.org/api/v1/realtime/data/");
-    },5000);
-  },5000);
-//setTimeout
-//banana
-//setTimeout
-////banana
+  //start the interval
+  var timerId = setTimeout(createCall,30000);
 
-  var interval = 2000;
+  //button pause
   var pause = document.getElementById("pause");
   var onClick = function(event){
-
         if(pause.textContent == "Pause"){
-          pause.textContent == "Active"
-          inter
+          pause.textContent  = "Active"
+          timerId = 0;
         }else{
           pause.textContent == "Pause"
-          clearInterval(inter);
+          timerId = setTimeout(createCall,10000);
         }
 
   };
   pause.addEventListener('click', onClick);
 
-
+  //animation for accordion
   var acc = document.getElementsByClassName("accordion");
   for (var i = 0; i < acc.length; i++) {
       acc[i].onclick = function(){
