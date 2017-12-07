@@ -206,7 +206,6 @@ function imageExists(image_url){
   return http.status != 404;
 
 }
-=======
 
 >>>>>>> 4844b758514f344daf89b9560436c00cab2b625e
 
