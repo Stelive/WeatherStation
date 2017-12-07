@@ -18,7 +18,9 @@
  // Night with stars: #0c0c38
 
 // RAIN EFFECTS
-
+/*
+*recreate the rain
+*/
 function rain(canvas) {
 
  var c = canvas;
@@ -47,7 +49,9 @@ function rain(canvas) {
      color: colors[Math.floor(Math.random() * colors.length)]
    });
  }
-
+/*
+*function that help the canvas
+*/
  function draw(){
    var i;
    ctx.clearRect(0, 0,c.width,c.height);
@@ -65,6 +69,9 @@ function rain(canvas) {
  draw();
 }
 
+/*
+*The function for the effect of snow
+*/
 function snow(canvas){
    var canvas = canvas;
    var ctx = canvas.getContext('2d');
@@ -78,6 +85,9 @@ function snow(canvas){
    //canvas.style.height = '100vh';
    //canvas.style.backgroundColor = '#000';
 
+/*
+*resize the size of canvans
+*/
    function canvasResize(){
        canvas.height = canvas.offsetHeight;
        canvas.width = canvas.offsetWidth;
@@ -228,6 +238,9 @@ function stars(canvas) {
            stars.push(star);
        }
    }
+/*
+*create the effct of counting stars
+*/
 
    function createShootingStar() {
        var shootingStar = particle.create(randomRange(width / 2, width), randomRange(0, height / 2), 0, 0);
@@ -241,6 +254,9 @@ function stars(canvas) {
        shootingStars.push(shootingStar);
    }
 
+   /*
+   *Stop the effct of counting stars
+   */
    function killShootingStar(shootingStar) {
        setTimeout(function() {
            shootingStar.isDying = true;
@@ -305,7 +321,9 @@ function stars(canvas) {
        }
        requestAnimationFrame(update);
    }
-
+/*
+*draw the effect of stars
+*/
    function drawStar(star) {
        context.fillStyle = "#ffeece";
        context.beginPath();
@@ -313,6 +331,9 @@ function stars(canvas) {
        context.fill();
    }
 
+   /*
+   *draw the effect of counting stars
+   */
    function drawShootingStar(p) {
        var x = p.x,
            y = p.y,
