@@ -1,6 +1,5 @@
 # WeatherStation
 Javascript Exercise: Weather Station
-Javascript Exercise: Weather Station
 You will be using jQuery and AJAX to get real-time weather station data
 ○ API: https://www.torinometeo.org/api-realtime/
 ○ Error status should be handled!
