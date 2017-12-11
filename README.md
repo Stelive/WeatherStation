@@ -27,6 +27,8 @@ In the file main.js there are the most important functions for the program:
 -searchAccordion(), looks for the accordion that you search with the filter
 -createCall()
 -main(), is the central part of program
+-animationAccordion(), create the animation for accordions
+-interval(), create a interval that call a function
 In the file main.js there are important functions for create,delete and update the elements in html:
 -sobstiuteAccordion(), change the accordion in according on the update
 -positioningSystem(), create the link that go on google maps
@@ -37,3 +39,5 @@ In the file fucntion.js there are important functions for animation.
 In the file ajaxCall.js there are important functions for ajax call:
 -makeGetRequest(), make a synchronous call
 -makeGetRequestAsy(), make a asynchronous call
+
+The page is responsive.

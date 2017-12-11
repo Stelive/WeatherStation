@@ -10,7 +10,7 @@
  * @numberOfTheExercise: 1
  * @exerciseTitle: Weather Station
  */
-
+ var timerId = 0;
  var skyColor = {
    daySnow : "#c6e2ff",
    daySun : "#b2e6f4",
@@ -105,36 +105,11 @@ function searchAccordion() {
 */
 function createCall(){
     var weatherStations = makeGetRequestAsy("https://www.torinometeo.org/api/v1/realtime/data/");
-    setTimeout(createCall(),30000);
 }
-
-function main(){
-  //create the first page
-  loadPage();
-  var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
-  weatherStations.forEach(function(weatherStation) {
-      var weatherStation = createweatherStation(weatherStation);
-      generateAccordion(weatherStation);
-  });
-
-  //start the interval
-  var timerId = setTimeout(createCall,30000);
-
-  //button pause
-  var pause = document.getElementById("pause");
-  var onClick = function(event){
-        if(pause.textContent == "Pause"){
-          pause.textContent  = "Active"
-          timerId = 0;
-        }else{
-          pause.textContent == "Pause"
-          timerId = setTimeout(createCall,10000);
-        }
-
-  };
-  pause.addEventListener('click', onClick);
-
-  //animation for accordion
+/*
+* Create the animation for accordions
+*/
+function animationAccordion(){
   var acc = document.getElementsByClassName("accordion");
   for (var i = 0; i < acc.length; i++) {
       acc[i].onclick = function(){
@@ -163,6 +138,46 @@ function main(){
           }
       }
   }
+}
+
+/*
+* Interval thath call a createCall()
+*/
+function interval(){
+   timerId = setTimeout(function tick() {
+    createCall();
+    timerId = setTimeout(tick, 7000); // (*)
+  }, 7000);
+}
+
+
+
+function main(){
+
+  //create the first page
+  loadPage();
+  var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
+  weatherStations.forEach(function(weatherStation) {
+      var weatherStation = createweatherStation(weatherStation);
+      generateAccordion(weatherStation);
+  });
+
+  interval();
+
+  //button pause
+  var pause = document.getElementById("pause");
+  var onClick = function(event){
+        if(pause.textContent == "Pause"){
+          pause.textContent  = "Active";
+          clearTimeout(timerId);
+        }else{
+          pause.textContent = "Pause";
+          interval();
+       }
+  };
+  pause.addEventListener('click', onClick);
+
+  animationAccordion();
 }
 
 main();
