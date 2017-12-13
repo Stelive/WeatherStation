@@ -11,13 +11,13 @@
  * @exerciseTitle: Weather Station
  */
 
-//urls flag of the nation
+//urls of the nations flag
 var urlItalianFlag = "https://icon-icons.com/icons2/266/PNG/128/Italy_29749.png";
 var urlFrenchFlag = "https://icon-icons.com/icons2/266/PNG/128/France_29740.png";
 var urlSwitzerlandFlag = "https://icon-icons.com/icons2/266/PNG/128/Switzerland_29744.png";
 
 /**
-* Function create an accordion
+* Function creates an accordion
 * @param {String} accordionName - name of accordion
 */
 function generateAccordion(object) {
@@ -58,7 +58,7 @@ function generateAccordion(object) {
     imgDiv.id = object.slug + "img";
     flag.id = object.nation;
 
-    // set day or night background
+    //set day or night background
     if (object.datetime.getHours() > 17 || object.datetime.getHours() < 6) {
       if (parseFloat(object.rain) > 1.0) {
         canvas.id = "rain";
@@ -76,7 +76,7 @@ function generateAccordion(object) {
         canvas.style.background = "-webkit-linear-gradient(bottom, rgb(160, 198, 255) 40%, rgb(92, 144, 218) 80%)";
       }
     }
-    // set rain or snow effects
+    //set rain or snow effects
     if (parseFloat(object.rain) > 1.0) {
         canvas.id = "rain";
         canvas.style.background = "-webkit-linear-gradient(bottom, rgb(126, 158, 206) 40%, rgb(197, 208, 226) 80%)";
@@ -116,7 +116,7 @@ function generateAccordion(object) {
     textDiv.appendChild(p2);
     textDiv.appendChild(p3);
 
-    // action for button
+    //action for button
     var onClick = function(event){
       var url = "https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/";
       var request = new XMLHttpRequest();
@@ -138,8 +138,6 @@ function generateAccordion(object) {
            if (requestJsonBlob.status === 200) {
              var jsonBlobObject = JSON.parse(requestJsonBlob.responseText);
              jsonBlobObject.forEach(function(jsonBlobObject) {
-               //console.log(jsonBlobObject.station.slug);
-               //console.log(object.slug);
                if(jsonBlobObject.station.slug == object.slug) {
                  takeImg(jsonBlobObject);
                }
@@ -148,12 +146,7 @@ function generateAccordion(object) {
          };
      };
      request.send();
-   }
-    /*var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/");
-          if(weatherStations.station.slug == object.slug) {
-            takeImg(weatherStations);
-          }
-     };*/
+    }
      button.addEventListener('click', onClick);
 }
 
@@ -215,17 +208,17 @@ function imageExists(image_url){
 }
 
 /**
- * Open the page of google Maps and show the position of station
+ * Open the page of google Maps and shows the place on map
  * @param  {Double} lat  latitudine
  * @param  {Double} long longitudine
- * @return {String} the url of page
+ * @return {String} - the url of page
  */
 function positioningSystem(lat, long) {
   return "https://www.google.it/maps/@" + lat + "," + long + ",15z?hl=it";
 }
 
 /**
- * Sobstitute the button of accordion
+ * Substitute the button of accordion
  */
 function sobstiuteAccordion(weatherStations){
   weatherStations.forEach(function(weatherStation){
@@ -237,5 +230,4 @@ function sobstiuteAccordion(weatherStations){
     var temperature = button.childNodes[1].childNodes[0];
     temperature.textContent = weatherStation.temperature + "°C";
   });
-
 }

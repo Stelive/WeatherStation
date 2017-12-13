@@ -47,16 +47,18 @@ In file htmlGenerator.js there are important functions for create, delete and up
 In the file function.js there are key functions for animation
 
 In the file ajaxCall.js there are functions for ajax calls:
--makeGetRequest(), makes a synchronous call;
+-makeGetRequest(), makes a synchronous call
 -makeGetRequestAsy(), makes an asynchronous call
 
 The page is responsive.
 
 
-
-					In ajaxCall.js there are the calls of the program thanks XMLHttpRequests. If the call is DONE the request status is 200 (ok),
-					there is an example in imageExistsfunction that do an XMLHttpRequests and if the image is found is different than 404 status, it will be seen.
-
-
-					HtmlGenerator.js is connected with the HTML. GenerateAccordion function create an accordion and it adds inside itself: classes (flag, imgBox, temperature etc..),
-					ids (img, descriptionBox etc..). positioningSystem function create a connection with Google Maps to see the place on the map.
+Possible future implementations:
+-Snow effect on accordions in which temperature is below a certain
+value
+-localJSON is not used because we've planned to use as a temporary storage
+in case both torinometeo.org and jsonblob will be unaccessible, but
+we've encountered problems in retrieving data from main site in these days.
+-We want to create a system that, when apis from torinometeo.org are
+available, our website takes json that uses to construct the page and
+stores it on jsonblob, to create a sort of last update.

@@ -18,7 +18,7 @@
    nation: ""
  };
 
- /** * Return a object that is the converted json of the site
+ /** * Return a object that is the converted json of the site synchronously
  * @param {String} url - the url of site
  * @returns {Object} - object from the json */
 
@@ -43,7 +43,6 @@
       requestJsonBlob.onload = function() {
         if (requestJsonBlob.status === 200) {
           object = JSON.parse(requestJsonBlob.responseText);
-          console.log(object);
           object.forEach(function(object) {
               var weatherStation = createweatherStation(object);
               generateAccordion(weatherStation);
@@ -54,23 +53,13 @@
       };
   };
   request.send();
-
  }
 
 /**
- * [makeGetRequestAsy description]
- * @param  {[type]} url [description]
- * @return {[type]}     [description]
+ * Return a object that is the converted json of the site asynchronously
+ * @param  {[type]} url - takes the input url
+ * @return {[type]}  - the object created from wherever json
  */
-/*function makeGetRequestAsy(url){
-  var request = new XMLHttpRequest();
-  request.open('GET', url, true);
-  request.addEventListener('load',function(){
-    object = JSON.parse(request.responseText);
-    sobstiuteAccordion(object);
-  });
-  request.send(null);
-}*/
 
 function makeGetRequestAsy(url){
   var request = new XMLHttpRequest();
@@ -81,7 +70,7 @@ function makeGetRequestAsy(url){
       sobstiuteAccordion(object);
     }
   };
- request.onerror = function() {
+  request.onerror = function() {
      console.error('Network error');
      var requestJsonBlob = new XMLHttpRequest();
      requestJsonBlob.open("GET", "https://jsonblob.com/api/jsonBlob/4d5329e6-dfe5-11e7-97d8-ed4eeafc7c05", true);
@@ -92,7 +81,7 @@ function makeGetRequestAsy(url){
          sobstiuteAccordion(object);
        }
      };
- };
+   };
  request.send();
 }
 
