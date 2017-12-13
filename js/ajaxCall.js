@@ -24,18 +24,37 @@
 
  function makeGetRequest(url){
    var request = new XMLHttpRequest();
-   var object ;
-   request.open("GET", url ,false);
-   request.setRequestHeader('Content-type', 'application/json');
-   request.onreadystatechange = function() {
-      if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-        showPage();
-      }
+   request.open('GET', url, true);
+   request.onload = function() {
+     if (request.status === 200) {
+       object = JSON.parse(request.responseText);
+       object.forEach(function(object) {
+           var weatherStation = createweatherStation(object);
+           generateAccordion(weatherStation);
+       });
+       showPage();
+     }
    };
+  request.onerror = function() {
+      console.error('Network error');
+      var requestJsonBlob = new XMLHttpRequest();
+      requestJsonBlob.open("GET", "https://jsonblob.com/api/jsonBlob/4d5329e6-dfe5-11e7-97d8-ed4eeafc7c05", true);
+      requestJsonBlob.send(null)
+      requestJsonBlob.onload = function() {
+        if (requestJsonBlob.status === 200) {
+          object = JSON.parse(requestJsonBlob.responseText);
+          console.log(object);
+          object.forEach(function(object) {
+              var weatherStation = createweatherStation(object);
+              generateAccordion(weatherStation);
+          });
+          animationAccordion();
+          showPage();
+        }
+      };
+  };
+  request.send();
 
-  request.send(null);
-  object = JSON.parse(request.responseText);
-  return object;
  }
 
 /**
@@ -43,7 +62,7 @@
  * @param  {[type]} url [description]
  * @return {[type]}     [description]
  */
-function makeGetRequestAsy(url){
+/*function makeGetRequestAsy(url){
   var request = new XMLHttpRequest();
   request.open('GET', url, true);
   request.addEventListener('load',function(){
@@ -51,6 +70,30 @@ function makeGetRequestAsy(url){
     sobstiuteAccordion(object);
   });
   request.send(null);
+}*/
+
+function makeGetRequestAsy(url){
+  var request = new XMLHttpRequest();
+  request.open('GET', url, true);
+  request.onload = function() {
+    if (request.status === 200) {
+      object = JSON.parse(request.responseText);
+      sobstiuteAccordion(object);
+    }
+  };
+ request.onerror = function() {
+     console.error('Network error');
+     var requestJsonBlob = new XMLHttpRequest();
+     requestJsonBlob.open("GET", "https://jsonblob.com/api/jsonBlob/4d5329e6-dfe5-11e7-97d8-ed4eeafc7c05", true);
+     requestJsonBlob.send(null)
+     requestJsonBlob.onload = function() {
+       if (requestJsonBlob.status === 200) {
+         object = JSON.parse(requestJsonBlob.responseText);
+         sobstiuteAccordion(object);
+       }
+     };
+ };
+ request.send();
 }
 
 /**
