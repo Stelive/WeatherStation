@@ -1,5 +1,5 @@
 /**
- * @file: htmlGenerator.css
+ * @file: ajaxCall.js
  * @author: Gruppo 7
  * @members:
   - Amedeo Martello
@@ -18,9 +18,9 @@
    nation: ""
  };
 
- /** * Return a object that is the conversion of json of the site
- * @param {String} ulr - the url of site
- * @returns {Object} the object from the json */
+ /** * Return a object that is the converted json of the site
+ * @param {String} url - the url of site
+ * @returns {Object} - object from the json */
 
  function makeGetRequest(url){
    var request = new XMLHttpRequest();
@@ -53,10 +53,14 @@ function makeGetRequestAsy(url){
   request.send(null);
 }
 
+/**
+ * [imageExists description]
+ * @param  {[type]} image_url - the image url
+ * @return {[type]} - a status different from error 404
+ */
 function imageExists(image_url){
 
   var http = new XMLHttpRequest();
   http.open('HEAD', image_url, false);
   return http.status != 404;
-
 }
