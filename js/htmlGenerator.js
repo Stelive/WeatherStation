@@ -118,11 +118,42 @@ function generateAccordion(object) {
 
     // action for button
     var onClick = function(event){
-    var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/");
+      var url = "https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/";
+      var request = new XMLHttpRequest();
+      request.open('GET', url, true);
+      request.onload = function() {
+        if (request.status === 200) {
+          singleStation = JSON.parse(request.responseText);
+          if(singleStation.station.slug == object.slug) {
+            takeImg(singleStation);
+          }
+        }
+      };
+     request.onerror = function() {
+         console.error('Network error');
+         var requestJsonBlob = new XMLHttpRequest();
+         requestJsonBlob.open("GET", "https://jsonblob.com/api/jsonBlob/4d5329e6-dfe5-11e7-97d8-ed4eeafc7c05", true);
+         requestJsonBlob.send(null)
+         requestJsonBlob.onload = function() {
+           if (requestJsonBlob.status === 200) {
+             var jsonBlobObject = JSON.parse(requestJsonBlob.responseText);
+             jsonBlobObject.forEach(function(jsonBlobObject) {
+               //console.log(jsonBlobObject.station.slug);
+               //console.log(object.slug);
+               if(jsonBlobObject.station.slug == object.slug) {
+                 takeImg(jsonBlobObject);
+               }
+             });
+             }
+         };
+     };
+     request.send();
+   }
+    /*var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/" + event.target.id + "/");
           if(weatherStations.station.slug == object.slug) {
             takeImg(weatherStations);
           }
-     };
+     };*/
      button.addEventListener('click', onClick);
 }
 
@@ -133,6 +164,7 @@ function generateAccordion(object) {
 function takeImg(json){
 
   //create the elements
+  console.log(json);
   var imgTextDiv = document.createElement('div');
   var div = document.getElementById(json.station.slug + "img");
   var img = document.createElement('img');

@@ -32,6 +32,7 @@ function loadPage() {
 function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("container").style.display = "block";
+  // Get the element with id="defaultOpen" and click on it
 }
 
 /** * Return a object that is the conversion of json of the site
@@ -151,16 +152,14 @@ function interval(){
 }
 
 
-
 function main(){
 
+// json object
+  var object = '';
+  var singleStation = '';
   //create the first page
   loadPage();
   var weatherStations = makeGetRequest("https://www.torinometeo.org/api/v1/realtime/data/");
-  weatherStations.forEach(function(weatherStation) {
-      var weatherStation = createweatherStation(weatherStation);
-      generateAccordion(weatherStation);
-  });
 
   interval();
 
